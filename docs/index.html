@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Review — Illustrated User &amp; Test Guide</title>
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A FRIENDLIER WAY TO TIDY YOUR BROWSER</p>
+        <h1>Meet your<br><span>bookmark helper.</span></h1>
+        <p class="lead">An illustrated guide to installing, trying, and understanding Bookmark Review — no extension experience needed.</p>
+        <div class="hero-pills"><span>Beginner friendly</span><span>Private by default</span><span>Changes need approval</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-window"><div class="art-dots">● ● ●</div><div class="art-heading">Your bookmarks</div><div class="art-line wide"></div><div class="art-line"></div><div class="art-card"><span>✓</span> Ready to review</div></div>
+        <div class="art-bookmark">★</div>
+      </div>
+      <div class="hero-footer">USER &amp; TEST GUIDE <span>VERSION 0.2</span></div>
+    </header>
+
+    <nav class="contents" aria-label="Guide contents">
+      <strong>In this guide</strong>
+      <a href="#overview">The big picture</a><a href="#install">Get started</a><a href="#report">Read the report</a><a href="#test">Try the tests</a><a href="#help">Get help</a>
+    </nav>
+
+    <section id="overview">
+      <p class="kicker">01 / THE BIG PICTURE</p>
+      <h2>A helpful review, not an automatic cleanup.</h2>
+      <p>A browser extension is a small program that adds a feature to your browser. This one reads your bookmarks and suggests ways to organize them. You decide whether to make each change.</p>
+      <div class="callout safety"><span class="callout-icon">✓</span><div><strong>Does it ask before changing anything?</strong><p>Yes. Creating a folder, moving, renaming, or deleting a bookmark each requires its own confirmation popup. Review the details and choose <strong>Cancel</strong> to leave things unchanged. The extension cannot undo a deletion.</p></div></div>
+      <h3>The journey at a glance</h3>
+      <div class="flow" aria-label="Flow: install, open, review, decide">
+        <div><b>1</b><strong>Install</strong><small>Load the extension</small></div><span class="arrow" aria-hidden="true">→</span>
+        <div><b>2</b><strong>Open</strong><small>Read bookmarks</small></div><span class="arrow" aria-hidden="true">→</span>
+        <div><b>3</b><strong>Review</strong><small>Explore suggestions</small></div><span class="arrow" aria-hidden="true">→</span>
+        <div><b>4</b><strong>Confirm</strong><small>Approve each change</small></div>
+      </div>
+      <div class="two-col">
+        <div class="mini-card"><h3>What stays private?</h3><p>Analysis happens on your device. A link check contacts its website only after you approve it; the site can see your IP address and the requested address.</p></div>
+        <div class="mini-card"><h3>Why ask for access?</h3><p>The browser's bookmarks permission lets the extension read and change bookmarks. A link check may also request access to the selected website.</p></div>
+      </div>
+    </section>
+
+    <section id="install">
+      <p class="kicker">02 / GET STARTED</p>
+      <h2>Install it in Chrome.</h2>
+      <p>This is an unpacked development version, not a store download. Keep the project folder on your computer; Chrome reads the extension from there.</p>
+      <ol class="steps">
+        <li><div><strong>Open the extensions page.</strong><p>In Chrome's address bar, type <code>chrome://extensions</code> and press Enter.</p></div></li>
+        <li><div><strong>Turn on Developer mode.</strong><p>Find the switch near the top of the page and turn it on. This allows you to load a local extension.</p></div></li>
+        <li><div><strong>Choose “Load unpacked.”</strong><p>Select the project folder — the one containing <code>manifest.json</code> — and confirm.</p></div></li>
+        <li><div><strong>Open Bookmark Review.</strong><p>Click the puzzle-piece Extensions button in Chrome's toolbar, then click <strong>Bookmark Review</strong>. A report opens in a new tab and scans automatically.</p></div></li>
+      </ol>
+      <div class="callout note"><span class="callout-icon">i</span><div><strong>After code changes</strong><p>Return to <code>chrome://extensions</code>, click the reload icon on the extension's card, and open the report again. The <strong>Scan again</strong> button refreshes bookmarks; it does not reload changed code.</p></div></div>
+      <p class="fine">Chrome and Brave still need hands-on testing. A basic scan has been tested in an isolated Edge profile. This project is not yet published.</p>
+    </section>
+
+    <section id="report">
+      <p class="kicker">03 / READ THE REPORT</p>
+      <h2>From numbers to decisions.</h2>
+      <p>The images below show the real interface with <strong>fictional test bookmarks</strong>, not your personal data. Your numbers and folder names will be different.</p>
+      <figure class="screenshot">
+        <img src="images/dashboard.png" alt="Example report showing six fictional bookmarks, one duplicate group, one possible match, two website groups, and one title suggestion.">
+        <figcaption>Example scan · The five cards summarize the report. Scroll down to see the individual suggestions.</figcaption>
+      </figure>
+      <div class="legend">
+        <article><span>01</span><div><h3>Bookmarks scanned</h3><p>The number of individual saved links the extension read. Folders themselves are not counted.</p></div></article>
+        <article><span>02</span><div><h3>Duplicate groups</h3><p>A group contains two or more bookmarks with <strong>exactly the same saved address</strong>. Different addresses are not considered duplicates, even if they look similar.</p></div></article>
+        <article><span>03</span><div><h3>Possible matches</h3><p>Addresses that match after removing common tracking parameters or standard URL formatting. They can still be different pages; inspect them carefully.</p></div></article>
+        <article><span>04</span><div><h3>Website groups</h3><p>Two or more web links with the same website name, such as <code>example.com</code>. This is a folder idea, not a command; the links may already be organized.</p></div></article>
+        <article><span>05</span><div><h3>Title suggestions</h3><p>Titles with extra whitespace are shown with a cleaner version. You can edit the proposed title; the extension does not invent one or use AI.</p></div></article>
+      </div>
+      <h3>Open a group to inspect the details</h3>
+      <p>Click a duplicate, possible match, or website group to expand it. Each row shows its title, address, current folder, and available actions. Click the group again to collapse it.</p>
+      <figure class="screenshot animation">
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="images/expanded.png"><img src="images/review-flow.gif" alt="A duplicate group opens to reveal two fictional bookmarks and their folders."></picture>
+        <figcaption>Illustrated review · The animation alternates between the closed and open states. <a href="images/expanded.png">View the still image</a>.</figcaption>
+      </figure>
+      <div class="callout warning"><span class="callout-icon">!</span><div><strong>Before deleting or moving anything</strong><p>Export a backup from your browser's bookmark manager first. If browser sync is on, a change may also affect your other devices. Check the address and folder carefully; the extension cannot undo deletions.</p></div></div>
+      <p><strong>To export a backup in Chrome:</strong> open <code>chrome://bookmarks/</code>, choose the bookmark manager's three-dot menu, select <strong>Export bookmarks</strong>, and save the file somewhere private. It contains your bookmark data. The extension does not create or restore backups for you.</p>
+      <div class="decision">
+        <h3>Decision flow</h3>
+        <div class="decision-row"><span>See a suggestion</span><b>→</b><span>Open and compare</span><b>→</b><span>Review popup</span><b>→</b><span>Cancel <em>or</em> confirm</span></div>
+        <p>The extension never selects a duplicate to delete for you. Every folder creation, move, rename, and deletion needs a separate confirmation.</p>
+      </div>
+      <figure class="screenshot">
+        <img src="images/confirmation.png" alt="Example delete confirmation listing a fictional bookmark's title, address, and folder, with Cancel and Delete bookmark buttons.">
+        <figcaption>Example confirmation · Check the details before choosing Cancel or Delete bookmark. Nothing happens just by opening this popup.</figcaption>
+      </figure>
+      <h3>What each action does</h3>
+      <ol class="steps">
+        <li><div><strong>Delete one duplicate.</strong><p>Expand a duplicate or possible match, click <strong>Delete this copy</strong>, check the title, address, and folder, then cancel or confirm. Other copies are not selected automatically.</p></div></li>
+        <li><div><strong>Create a folder and move bookmarks.</strong><p>Expand a website group and choose <strong>Create suggested folder</strong>. Enter a name, choose its parent folder, and confirm. The folder starts empty. For each bookmark, choose <strong>Move</strong>, select the destination, and confirm separately.</p></div></li>
+        <li><div><strong>Rename a bookmark.</strong><p>Choose <strong>Review rename</strong> for a title suggestion, or <strong>Rename</strong> beside a bookmark. Review the current title and edit the new title in the popup, then confirm.</p></div></li>
+        <li><div><strong>Find and check a link.</strong><p>Use <strong>Find a bookmark</strong> (at least two characters), or expand a group, and choose <strong>Check link</strong>. Confirm the network request and, if asked, grant website access in the browser. The check uses a HEAD request without cookies, does not follow redirects, and times out after 10 seconds. A failure, redirect, or HTTP error does not prove a link is broken.</p></div></li>
+      </ol>
+      <p class="fine">Website access granted for a check remains until removed in the browser's extension settings. The check sends the address, including any query, to the website; only HTTP and HTTPS links without embedded credentials can be checked.</p>
+    </section>
+
+    <section id="test">
+      <p class="kicker">04 / TRY IT YOURSELF</p>
+      <h2>A small, safe test plan.</h2>
+      <p>You can test with bookmarks you already have, or create temporary ones in your browser's bookmark manager. The example addresses below are fictional placeholders; you do not need to visit them.</p>
+      <div class="callout note"><span class="callout-icon">i</span><div><strong>Keep test data separate</strong><p>Create a folder called <strong>Bookmark Review Test</strong> in your bookmark manager. Add the examples there, then delete only that test folder yourself when you are finished. If sync is enabled, those test bookmarks may sync to other devices.</p></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Test</th><th>What to set up</th><th>What you should see</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Duplicate</strong></td><td>Save <code>https://example.com/guide</code> twice with different titles.</td><td>One duplicate group with two rows; expand it to see both titles and folders.</td></tr>
+            <tr><td><strong>Not a duplicate</strong></td><td>Also save <code>https://example.com/guide/</code> with the trailing slash.</td><td>It is not included in the exact-match duplicate group. It can still appear in the website group.</td></tr>
+            <tr><td><strong>Possible match</strong></td><td>Also save <code>https://example.com/guide?utm_source=test</code>.</td><td>It appears with the original under Possible similar links. Compare before deciding whether to delete.</td></tr>
+            <tr><td><strong>Folder idea</strong></td><td>Expand the <code>example.com</code> group and choose <strong>Create suggested folder</strong>.</td><td>The folder is created only after you choose a destination and confirm; it starts empty.</td></tr>
+            <tr><td><strong>Title cleanup</strong></td><td>Save a title with repeated spaces, such as <code>My  guide</code>, then choose <strong>Review rename</strong>.</td><td>The popup suggests <code>My guide</code>. Cancel leaves the title unchanged; confirm applies the shown title.</td></tr>
+            <tr><td><strong>Move and delete</strong></td><td>Choose <strong>Move</strong> or <strong>Delete this copy</strong> for a test bookmark.</td><td>Cancel first and verify nothing changed. Repeat and confirm; only the selected bookmark changes.</td></tr>
+            <tr><td><strong>Link check</strong></td><td>Choose <strong>Check link</strong> for a test bookmark; cancel the popup.</td><td>No website request is made. If you later confirm and grant access, check the reported result manually.</td></tr>
+            <tr><td><strong>Refresh</strong></td><td>Add or remove a test bookmark in the browser, then click <strong>Scan again</strong>.</td><td>The counts and suggestions update to reflect the current bookmarks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">For automated checks, run <code>node --test</code> in the project folder. These tests are separate from the manual browser checks above.</p>
+    </section>
+
+    <section id="help">
+      <p class="kicker">05 / GET HELP</p>
+      <h2>Questions you might have.</h2>
+      <div class="faq">
+        <article><h3>I don't see the extension.</h3><p>Check that it is enabled on <code>chrome://extensions</code>, then look under the toolbar's puzzle-piece button. If it is not listed, repeat the “Load unpacked” steps.</p></article>
+        <article><h3>The scan failed. What now?</h3><p>Read the error shown on the page and click <strong>Scan again</strong>. If it persists, reload the extension on the extensions page, reopen it, and share the error message when asking for help.</p></article>
+        <article><h3>Why are my counts zero?</h3><p>There may be no matches for that particular rule. For example, two similar but different URLs are not exact duplicates. The test plan above gives you a known example.</p></article>
+        <article><h3>Can I undo something?</h3><p>There is no undo in the extension. Recovery depends on your browser and your backup. Export a backup before cleanup, and review each confirmation carefully.</p></article>
+      </div>
+      <div class="callout safety"><span class="callout-icon">↗</span><div><strong>Stay in control</strong><p>If a bookmark or destination changed after the scan, the extension asks you to cancel and scan again instead of applying an outdated change. Managed bookmarks may not be editable.</p></div></div>
+    </section>
+    <footer><strong>Bookmark Review</strong><span>Small steps. A calmer bookmark collection.</span><span>Guide for version 0.2</span></footer>
+  </main>
+</body>
+</html>

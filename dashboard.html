@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Review</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="analyzer.js" defer></script>
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="header">
+      <div>
+        <p class="eyebrow">YOUR BOOKMARKS, YOUR CONTROL</p>
+        <h1>Bookmark Review</h1>
+        <p>Review and organize your bookmarks, one confirmed change at a time.</p>
+      </div>
+      <button id="scan" type="button">Scan again</button>
+    </header>
+
+    <p id="status" role="status" aria-live="polite">Reading your bookmarks...</p>
+    <div id="results" hidden>
+      <section class="summary" aria-label="Scan summary">
+        <div><strong id="bookmark-count">0</strong><span>bookmarks scanned</span></div>
+        <div><strong id="duplicate-count">0</strong><span>duplicate groups</span></div>
+        <div><strong id="similar-count">0</strong><span>possible matches</span></div>
+        <div><strong id="folder-count">0</strong><span>website groups</span></div>
+        <div><strong id="title-count">0</strong><span>title suggestions</span></div>
+      </section>
+
+      <p class="notice">No bookmarks are changed without your confirmation. Export a backup from your browser's bookmark manager before making changes; deletions may sync and cannot be undone here. Link checks contact websites only when you approve them.</p>
+
+      <section>
+        <h2>Duplicate bookmarks</h2>
+        <p>These bookmarks have exactly the same saved address. Check their folders before deciding which to keep.</p>
+        <div id="duplicates"></div>
+      </section>
+      <section>
+        <h2>Possible similar links</h2>
+        <p>These addresses match after removing common tracking parameters or standard URL formatting. They may lead to different pages; compare them carefully.</p>
+        <div id="similar"></div>
+      </section>
+      <section>
+        <h2>Folder ideas</h2>
+        <p>These bookmarks share a website. Consider grouping related ones together if it helps you; not every group needs a new folder.</p>
+        <div id="folders"></div>
+      </section>
+      <section>
+        <h2>Title cleanup</h2>
+        <p>These suggestions remove extra whitespace. You can edit the proposed title before confirming.</p>
+        <div id="titles"></div>
+      </section>
+      <section>
+        <h2>Find a bookmark</h2>
+        <p>Search your bookmarks to rename, move, or check one link. Link checks are optional and contact the website after your approval.</p>
+        <label for="search">Search titles, addresses, or folders</label>
+        <input id="search" type="search" placeholder="Type to search">
+        <p id="search-status" class="folder" role="status"></p>
+        <div id="search-results"></div>
+      </section>
+    </div>
+  </main>
+  <p id="action-status" role="status" aria-live="polite"></p>
+  <dialog id="confirmation" aria-labelledby="dialog-title" aria-describedby="dialog-details">
+    <form id="confirmation-form">
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-details"></div>
+      <div id="dialog-fields"></div>
+      <p id="dialog-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="dialog-cancel" class="secondary" type="button">Cancel</button>
+        <button id="dialog-confirm" type="submit">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

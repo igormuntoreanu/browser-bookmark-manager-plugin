@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Review",
+  "version": "0.2.0",
+  "description": "Review and organize bookmarks with confirmation for every change.",
+  "permissions": ["bookmarks"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Open Bookmark Review"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
